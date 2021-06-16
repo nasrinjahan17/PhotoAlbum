@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        {% for a in pic %}
+            <div class="col-sm-4">
+                <div class="card shadow m-2" style="width: 20rem;">
+                    <img src="{{ a.image.url }}" alr="photos" class="card-img-top" height="200px">
+                    <div class="card-footer">
+                        <small class="text-muted">{{ a.date }}</small>
+                    </div>
+                    <a href="{% url 'delete_photo' a.id %}">
+                        <input type="button" class="btn btn-danger btn-sm" value="Delete">
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
